@@ -96,7 +96,10 @@
 		}else{
 			self.masterSrc.length=0;
 		}
+
+		self.scope.options.listeners.beforeLoadingData();
 		self.resetSrc();
+		self.scope.options.listeners.afterLoadingData();
 		self.initPager(_pager);
 		
 	}
@@ -152,16 +155,18 @@
 		}
 	}
 	Grid.prototype.applyFilter=function(){
+		this.scope.options.listeners.beforeLoadingData();
 		this.invokeFilterChain();
 		if(this.pager){
 			this.pager.currentPage=1;
 			this.updatePage();	
 		}
+		this.scope.options.listeners.afterLoadingData();
 	}
 	Grid.prototype.updateFilter=function(name,value){
 		this.filters[name].value=value;
 		if(this.scope.options.isManualFilter!=true){
-			this.applyFilter();
+			this.scope.options.applyFilter();
 		}
 	}
 	Grid.prototype.registerFilter=function(filter){
@@ -226,7 +231,7 @@
 	RemoteGrid.prototype.updateFilter=function(name,value){
 		this.filters[name].value=value;
 		if(this.scope.options.isManualFilter!=true){
-			this.applyFilter();
+			this.scope.options.applyFilter();
 		}
 	}
 	RemoteGrid.prototype.applyFilter=function(){
@@ -272,14 +277,17 @@
 		return _param;
 	}
 	RemoteGrid.prototype.load=function(http,log){
-		var _param=this.prepareDataRequest();		
+		var _param=this.prepareDataRequest();
+		this.scope.options.listeners.beforeLoadingData();		
 		this.helperServices.http({method: 'GET',url: this.scope.options.src,params: _param}).success(function(resp){
-			self.updateSource(resp.data);
-			self.updatePager(resp.pager);
+			this.updateSource(resp.data);
+			this.updatePager(resp.pager);
+			this.scope.options.listeners.afterLoadingData();
 		}).error(function(error){
 			this.helperServices.log.error(error);
-			self.updateSource(resp.data);
-			self.updatePager(resp.pager);
+			this.updateSource(resp.data);
+			this.updatePager(resp.pager);
+			this.scope.options.listeners.afterLoadingData();
 		});
 	}
 	var _gridDirective=['$http','$log','$q',function($http,$log,$q){
@@ -287,9 +295,9 @@
 			src:[],
 			isRemotePaging:false,/// mark true for remote paging
 			isManualFilter:false, // mark true to apply Filters manually using applyFilter function
-			pager:{
-				count:0,
-				page:1
+			listeners:{
+				beforeLoadingData:angular.noop,
+				afterLoadingData:angular.noop
 			}
 		}
 		return {
@@ -298,6 +306,7 @@
 			controller:['$scope',function($scope){
 				var self,grid;
 				self=this;
+				$scope.options=angular.extend(_defaults,$scope.options);
 				grid=(isRemoteGrid($scope))?(new RemoteGrid()):(new Grid($scope));
 				self.getSource=function(){
 					return grid.getSource();

@@ -1,5 +1,5 @@
 var master_list=[];
-for(var k=1;k<=50000;k++){
+for(var k=1;k<=5000;k++){
 	master_list.push({first_name:'A'+k,last_name:'a'+k,age:k,city:'city'+k})
 }
 
