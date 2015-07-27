@@ -4,10 +4,20 @@
 
 
 ## Directives :
-* **ui-grid** : the core directive for the ui-grid which accept an configuration object.
-* **ui-grid-repeat** : responsible for rendering the grid row 
-* **ui-grid-filter** : used to apply filters
-* **ui-grid-sort** : used to apply sort
+**ui-grid** : the core directive for the ui-grid which accept an configuration object.
+
+| Property     | type    | Description |
+| --------|---------|-------|
+| src  | string/object   | collection of items, can be array or Url or promise  |
+| isRemotePaging | boolean(default: false) |  mark true to enable remote paging |
+| isManualFilter | boolean(default: false) |  mark true to enable to trigger filtering of the records manually |
+| listeners | object | callback functions </br> 1). beforeLoadingData : called before loading the records. </br>2). afterLoadingData : called after loading the records  |
+| pager | object | paging configuation object e.g </br> pager:{</br> count:20  </br>}  |
+
+
+**ui-grid-repeat** : responsible for rendering the grid row 
+**ui-grid-filter** : used to apply filters
+**ui-grid-sort** : used to apply sort
 
 ## Usage :
   
