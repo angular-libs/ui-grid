@@ -15,9 +15,9 @@
 | pager | object | paging configuation object e.g </br> pager:{</br> count:20  </br>}  |
 
 
-**ui-grid-repeat** : responsible for rendering the grid row 
-**ui-grid-filter** : used to apply filters
-**ui-grid-sort** : used to apply sort
+**ui-grid-repeat** : responsible for rendering the grid row </br>
+**ui-grid-filter** : used to apply filters</br>
+**ui-grid-sort** : used to apply sort</br>
 
 ## Usage :
   
