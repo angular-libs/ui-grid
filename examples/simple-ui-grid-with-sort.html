@@ -1,8 +1,9 @@
 <html>
 <head>
-<script src="dist/scripts/vendor.min.js"></script>
-<script src="dist/scripts/ui-grid.js"></script>
-<script src="example.js"></script>
+<script src="../dist/scripts/vendor.min.js"></script>
+<script src="../dist/scripts/ui-grid.js"></script>
+<script src="simple-ui-grid-with-sort.js"></script>
+
 </head>
 <body ng-app="gpApp" ng-controller="TestController">
 	<H2>Grid</H2>
@@ -35,13 +36,6 @@
 				<th ui-grid-sort='age'>Age</th>
 				<th ui-grid-sort='city'>City</th>
 			</tr>
-			<tr>
-				<td ><input type="text"  ng-model="filter.first_name" ui-grid-filter='first_name'></td>
-				<td ><input type="text"  ng-model="filter.last_name" ui-grid-filter='filter1'></td>
-				<td ><input type="text"  ng-model="filter.age" ui-grid-filter='age'></td>
-				<td ><input type="text"  ng-model="filter.city" ui-grid-filter='city'></td>
-			</tr>
-			
 		</thead>
 		<tbody>
 			<tr ui-grid-repeat var="item">
@@ -54,11 +48,5 @@
 			
 		</tbody>
 	</table>
-	<p>
-		<span><button ng-click="prev()"><<</button></span>
-		<span>{{gridOptions.pager.currentPage}}</span>
-		<span><button ng-click="next()">>></button></span>
-		<span>Total Pages {{gridOptions.pager.totalPageCount}}</span>
-	</p>
 </body>
 </html>

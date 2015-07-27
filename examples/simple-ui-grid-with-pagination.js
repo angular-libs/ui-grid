@@ -5,37 +5,10 @@ for(var k=1;k<=5000;k++){
 
 angular.module('gpApp',['ui.grid']);
 angular.module('gpApp').controller('TestController',['$scope','$q',function($scope,$q){
-	$scope.gridOptions1={
-		src:function(){
-			return master_list;
-		}
-	}
 	$scope.gridOptions={
 		src:master_list,
 		pager:{
 			count:20
-		}
-	}
-	$scope.gridOptions2={
-		src:'someUrl',
-		pager:{
-			count:10
-		}
-	}
-	$scope.filter1={
-		key:'last_name',
-		filterFn:function(array,filter,value){
-			for(var i = array.length - 1; i >= 0; i--) {
-			    if(value && array[i][filter.key]!=value){
-		       		array.splice(i, 1);
-		 		}
-			}
-		}
-	}
-	$scope.sort1={
-		key:'first_name',
-		sortFn:function(array,sorter,order){
-			array.sort();
 		}
 	}
 	$scope.add=function(k){
@@ -51,10 +24,17 @@ angular.module('gpApp').controller('TestController',['$scope','$q',function($sco
 		
 	}
 	$scope.next=function(){
+		// pager has getPage function to get the given page.
 		$scope.gridOptions.pager.getPage($scope.gridOptions.pager.currentPage+1);
 	}
 	$scope.prev=function(){
 		$scope.gridOptions.pager.getPage($scope.gridOptions.pager.currentPage-1);
+	}
+	$scope.last=function(){
+		$scope.gridOptions.pager.getPage($scope.gridOptions.pager.totalPageCount);
+	}
+	$scope.first=function(){
+		$scope.gridOptions.pager.getPage(1);
 	}
 }]);
 

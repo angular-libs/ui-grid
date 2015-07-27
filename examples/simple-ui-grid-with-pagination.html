@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="../dist/scripts/vendor.min.js"></script>
+<script src="../dist/scripts/ui-grid.js"></script>
+<script src="simple-ui-grid-with-pagination.js"></script>
+</head>
+<body ng-app="gpApp" ng-controller="TestController">
+	<H2>Grid</H2>
+	<table>
+		<thead>
+			<tr><th>Add New Person</th></tr>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
+				<th>City</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td ><input type="text"  ng-model="person.first_name" ></td>
+				<td ><input type="text"  ng-model="person.last_name" ></td>
+				<td ><input type="text"  ng-model="person.age" ></td>
+				<td ><input type="text"  ng-model="person.city" ></td>
+				<td ><button ng-click="add(person)">Add</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>List of Persons</h3>
+	<table ui-grid="gridOptions">
+		<thead>
+			<tr>
+				<th >First Name</th>
+				<th >Last Name</th>
+				<th >Age</th>
+				<th >City</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ui-grid-repeat var="item">
+				<td>{{item.first_name}}</td>
+				<td>{{item.last_name}}</td>
+				<td>{{item.age}}</td>
+				<td>{{item.city}}</td>
+				<td><button ng-click="delete(item)">Delete</button></td>
+			</tr>
+			
+		</tbody>
+	</table>
+	<p>
+		<span><button ng-click="first()"><</button></span>
+		<span><button ng-click="prev()"><<</button></span>
+		<span>{{gridOptions.pager.currentPage}}</span>
+		<span><button ng-click="next()">>></button></span>
+		<span><button ng-click="last()">></button></span>
+		<span>Total Pages {{gridOptions.pager.totalPageCount}}</span>
+	</p>
+</body>
+</html>
