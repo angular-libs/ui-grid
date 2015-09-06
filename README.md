@@ -50,8 +50,9 @@ var filters=[{
     }
 ```
 * **ui-grid-sort** : used to apply sort
+
 |  Type    | Description |
-| ---------|-------|
+| :---------:|:-------:|
 | `string`/`object`| can be name of the proptery or sorter object with sort function e.g
 ```javascript
     var sorter={   
