@@ -13,8 +13,11 @@
 		var i,key;
 		key=sorter.key;
 		return array.sort(function(item1,item2){
-			i=(item1[key]<item2[key])?-1:1;
-			return i*sorter.order;
+			if(item1[key]===item2[key]){
+				return 0;
+			}else{
+				return (item1[key]<item2[key])?-1*sorter.order:1*sorter.order;
+			}
 		});
 	}
 	function GridFilter(key,value,filterFn){
@@ -31,24 +34,16 @@
 			order:order
 		}
 	}
-	function GridPager(count,currentPage,totalPageCount){
-		return{
-			count:count,
-			currentPage:currentPage,
-			totalPageCount:totalPageCount,
-			totalRecordCount:count*totalPageCount
-		};
-	}
 	function isRemoteGrid(scope){
-		return typeof scope.options.src ==='string' && typeof scope.options.pager ==='object' && scope.options.isRemotePaging===true;
+		return typeof scope.options.src ==='string' && typeof scope.options.pager ==='object' && scope.options.remote===true;
 	}
-	function Grid(scope){
+	function Grid(config){
 		this.filters={};
 		this.masterSrc=[];
 		this.src=[];
 		this.page=[];
-		this.pager=undefined;
-		this.scope=scope;
+		this.pager=config.pager;
+		this.scope=config.scope;
 		
 	}
 	Grid.prototype.watcherFn=function(n){//need to change the context
@@ -83,16 +78,24 @@
 		self=this;
 		_src=self.scope.options.src;
 		_pager=self.scope.options.pager;
-		if(angular.isFunction(_src)){
+		if(angular.isFunction(_src.then)){//promise
+			_pomise=q.when(_src);
+			_pomise.then(function(data){
+				self.watcherFn(data);	
+			},function(error){
+				self.watcherFn([]);
+				log.error(error);
+			})
+		}else if(angular.isFunction(_src)){//function
 			_pomise=q.when(_src());
 			self.scope.$watchCollection(function(){
 				return _src();
 			},watcher);	
-		}else if(Array.isArray(_src)){
+		}else if(Array.isArray(_src)){//array
 			_pomise=q.when(_src);
 			self.scope.$watchCollection('options.src',watcher);	
 		}else if(angular.isString(_src)){
-			_pomise=q.when(http(_src));
+			_pomise=q.when(http.get(_src));
 		}else{
 			self.masterSrc.length=0;
 		}
@@ -106,7 +109,7 @@
 	Grid.prototype.initPager=function(p){
 		var self=this;
 		if(p){
-			self.scope.options.pager=GridPager(p.count,1,Math.ceil(self.masterSrc.length/p.count));
+			self.scope.options.pager=new GridPager(p.count,1,Math.ceil(self.getSource().length/p.count),self.getSource().length);
 			self.pager=self.scope.options.pager;
 			self.updatePage();
 			self.pager.getPage=function(i){//exposing page fn
@@ -127,6 +130,7 @@
 		}
 		_totalPage=Math.ceil(this.src.length/this.pager.count);
 		this.pager.totalPageCount=(_totalPage==0)?1:_totalPage;
+		this.pager.totalRecordCount=this.src.length;
 	}
 	Grid.prototype.getPage=function(pageNumber){
 		if(pageNumber>0 && pageNumber<=this.pager.totalPageCount){
@@ -165,7 +169,7 @@
 	}
 	Grid.prototype.updateFilter=function(name,value){
 		this.filters[name].value=value;
-		if(this.scope.options.isManualFilter!=true){
+		if(this.scope.options.manualFilter!=true){
 			this.scope.options.applyFilter();
 		}
 	}
@@ -174,6 +178,30 @@
 	}
 	Grid.prototype.getSource=function(){
 		return (this.pager)?this.page:this.src;
+	}
+
+	GridPager.prototype.getCurrentPageFirstIndex=function(){
+		if(this.totalRecordCount==0){
+			return 0;
+		}
+		if(this.currentPage==1){
+			return 1;
+		}else{
+			return (this.currentPage-1)*this.count+1;
+		}
+	}
+	GridPager.prototype.getCurrentPageLastIndex=function(){
+		if(this.currentPage*this.count<=this.totalRecordCount){
+			return this.currentPage*this.count; 
+		}else{
+			return this.totalRecordCount;
+		}
+	}
+	function GridPager(count,currentPage,totalPageCount,totalRecordCount){
+		this.count=count;
+		this.currentPage=(currentPage && currentPage>1)?currentPage:1;
+		this.totalPageCount=(totalPageCount && totalPageCount>1)?totalPageCount:1;
+		this.totalRecordCount=totalRecordCount;
 	}
 	function RemoteGridFilter(key,value){
 		return {
@@ -187,20 +215,16 @@
 			order:order
 		}
 	}
-	function RemoteGridPager(count,currentPage,totalPageCount,totalRecordCount){
-		return{
-			count:count,
-			currentPage:currentPage,
-			totalPageCount:totalPageCount,
-			totalRecordCount:totalRecordCount
-		};
-	}
-	function RemoteGrid(scope){
-		this.filters=undefined;
-		this.sorter=undefined;
-		this.masterSrc=[];
-		this.pager=undefined;
-		this.scope=scope;
+	function RemoteGrid(config){
+		var self=this;
+		self.filters=config.filters;
+		self.sorter=config.sorter;
+		self.masterSrc=[];
+		self.pager=config.pager;
+		self.scope=config.scope;
+		GridPager.prototype.getPage=function(i){//exposing page fn
+			self.getPage(i);
+		}; 
 	}
 	RemoteGrid.prototype.getSource=function(){
 		return this.masterSrc;
@@ -208,15 +232,14 @@
 	RemoteGrid.prototype.updateSource=function(data){
 		this.masterSrc.length=0;
 		if(data){
-			for(var i=0;data.length;i++){
-				this.masterSrc.push(data[i]);
+			var l=(data.length>this.pager.count)?this.pager.count:data.length;
+			for(var x=0;x<l;x++){
+				this.masterSrc.push(data[x]);
 			}
 		}
 	}
 	RemoteGrid.prototype.init=function(http,log,q){
-		//var _url=this.scope.options.src;
-		var _pager=this.scope.options.pager;
-		this.updatePager(_pager.count,1,1,0);
+		this.updatePager(this.scope.options.pager);
 		this.helperServices={
 			http:http,log:log
 		};
@@ -230,27 +253,30 @@
 	}
 	RemoteGrid.prototype.updateFilter=function(name,value){
 		this.filters[name].value=value;
-		if(this.scope.options.isManualFilter!=true){
+		if(this.scope.options.manualFilter!=true){
 			this.scope.options.applyFilter();
 		}
 	}
 	RemoteGrid.prototype.applyFilter=function(){
+		this.pager.currentPage=1
 		this.load();
 	}
 	RemoteGrid.prototype.invokeSort=function(sortOption){
-		this.sorter=RemoteGridSorter(sortOption.key,sortOption.value);
+		this.sorter=RemoteGridSorter(sortOption.key,sortOption.order);
+		this.pager.currentPage=1
 		this.load();
 	}
 	RemoteGrid.prototype.updatePager=function(pager){
+		var self=this;
+		var _pager=self.scope.options.pager;
 		if(pager){
-			this.scope.options.pager=RemoteGridPager(pager.count,pager.currentPage,pager.totalPageCount,pager.totalRecordCount);
+			var _totalPage=(pager.count==0||pager.totalRecordCount==0)?1:Math.ceil(pager.totalRecordCount/_pager.count)
+			_pager=new GridPager(_pager.count,_pager.currentPage,_totalPage,pager.totalRecordCount);
 		}else{
-			this.scope.options.pager=RemoteGridPager(0,1,1,0);
+			_pager=new GridPager(0,1,1,0);
 		}
-		this.pager=this.scope.options.pager;
-		this.pager.getPage=function(i){//exposing page fn
-				self.getPage(i);
-			}; 
+		self.scope.options.pager=_pager;
+		self.pager=_pager;
 	}
 
 	RemoteGrid.prototype.getPage=function(pageNumber){
@@ -267,47 +293,75 @@
 			page:self.pager.currentPage
 		};
 		_param={
-			pager:JSON.stringify(_pager)
+			pager:_pager//JSON.stringify(_pager)
 		}
 		if(self.sorter)
-			_param['sorter']=JSON.stringify(self.sorter);
+			_param['sorter']=self.sorter;//JSON.stringify(self.sorter);
 		if(self.sorter)
-			_param['filters']=JSON.stringify(self.filters);
+			_param['filters']=self.filters;//JSON.stringify(self.filters);
 		
 		return _param;
 	}
 	RemoteGrid.prototype.load=function(http,log){
 		var _param=this.prepareDataRequest();
-		this.scope.options.listeners.beforeLoadingData();		
-		this.helperServices.http({method: 'GET',url: this.scope.options.src,params: _param}).success(function(resp){
-			this.updateSource(resp.data);
-			this.updatePager(resp.pager);
-			this.scope.options.listeners.afterLoadingData();
-		}).error(function(error){
-			this.helperServices.log.error(error);
-			this.updateSource(resp.data);
-			this.updatePager(resp.pager);
-			this.scope.options.listeners.afterLoadingData();
-		});
+		var _self=this;
+		_self.scope.options.listeners.beforeLoadingData();
+		if(angular.isFunction(_self.scope.options.load)){
+			_self.scope.options.load(_self,_param);
+			_self.scope.options.listeners.afterLoadingData();
+		}else{
+			_self.helperServices.http.get(_self.scope.options.src,_param).success(function(resp){
+				_self.updateSource(resp.data);
+				_self.updatePager(resp.pager);
+				_self.scope.options.listeners.afterLoadingData();
+			}).error(function(error){
+				_self.helperServices.log.error(error);
+				_self.updateSource([]);
+				_self.updatePager();
+				_self.scope.options.listeners.afterLoadingData();
+			});
+		}
 	}
 	var _gridDirective=['$http','$log','$q',function($http,$log,$q){
-		var _defaults={
-			src:[],
-			isRemotePaging:false,/// mark true for remote paging
-			isManualFilter:false, // mark true to apply Filters manually using applyFilter function
-			listeners:{
-				beforeLoadingData:angular.noop,
-				afterLoadingData:angular.noop
+		function defaults(options){
+			var _defaults={
+					src:[],
+					filters:{},
+					sorter:{},
+					remote:false,/// mark true for remote paging
+					manualFilter:false, // mark true to apply Filters manually using applyFilter function
+					listeners:{
+						beforeLoadingData:angular.noop,
+						afterLoadingData:angular.noop
+					}
+				}
+			var _pager={
+				count:0,
+				totalRecordCount:0
 			}
+			var _filter={
+				filterFn:simpleFilterFn
+			}
+			options=angular.extend(_defaults,options);
+			if(options.pager){
+				options.pager=angular.extend(_pager,options.pager);
+			}
+			if(options.filters && options.filters.length>0){
+				for(var a=0;a<options.filters.length;a++){
+					if(options.filters[a].key){
+						options.filters[a]=angular.extend(_filter,options.filters[a])
+					}
+				}
+			}
+			return options;
 		}
 		return {
 			restrict: 'A',
 			require: 'uiGrid',
-			controller:['$scope',function($scope){
+			controller:['$scope','$timeout',function($scope,$timeout){
 				var self,grid;
 				self=this;
-				$scope.options=angular.extend(_defaults,$scope.options);
-				grid=(isRemoteGrid($scope))?(new RemoteGrid()):(new Grid($scope));
+				
 				self.getSource=function(){
 					return grid.getSource();
 				}
@@ -326,8 +380,18 @@
 				self.isRemoteGrid=function(){
 					return isRemoteGrid($scope);
 				}
-				grid.init($http,$log,$q);
-
+				$scope.options=defaults($scope.options);
+				$scope.options.scope=$scope;
+				grid=(isRemoteGrid($scope))?(new RemoteGrid($scope.options)):(new Grid($scope.options));
+				
+				$timeout(function(){
+					grid.init($http,$log,$q);
+					if($scope.options.filters && $scope.options.filters.length>0){
+						for(var a=0;a<$scope.options.filters.length;a++){
+							self.registerFilter($scope.options.filters[a]);
+						}
+					}
+				});
 				//exposing applyFilter
 				$scope.options.applyFilter=function(){
 					grid.applyFilter();
@@ -412,3 +476,4 @@
 	angular.module('ui.grid').directive('uiGridRepeat',_gridRepeatDirective);
 	angular.module('ui.grid').directive('uiGridSort',_gridSortDirective);
 })();
+
