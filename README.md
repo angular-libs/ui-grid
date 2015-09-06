@@ -4,25 +4,69 @@
 
 
 ## Directives :
-**ui-grid** : the core directive for the ui-grid which accept an configuration object.
+* **ui-grid** : the core directive for the ui-grid which accept an configuration object.
 
 | Property     | type    | Description |
-| --------|---------|-------|
-| src  | string/object   | collection of items, can be array or Url or promise  |
-| isRemotePaging | boolean(default: false) |  mark true to enable remote paging |
-| isManualFilter | boolean(default: false) |  mark true to enable to trigger filtering of the records manually |
-| listeners | object | callback functions </br> 1). beforeLoadingData : called before loading the records. </br>2). afterLoadingData : called after loading the records  |
-| pager | object | paging configuation object e.g </br> pager:{</br> count:20  </br>}  |
+| :--------|:---------|:-------|
+| src  | `string`/`object`   | collection of items, can be array or Url or promise  |
+| remote | `boolean`(default: false) |  mark true to enable remote paging |
+| manualFilter | `boolean`(default: false) |  mark true to enable to trigger filtering of the records manually |
+| listeners | `object` | callback functions
+    1). beforeLoadingData : called before loading the records.
+    2). afterLoadingData : called after loading the records
+|           |         |            |
+|:--------|:---------|:-------|
+| pager | `object` | paging configuation object e.g  
+```javascript
+var pager={
+        count:20 
+    }
+```
+
+|           |         |            |
+|:--------|:---------|:-------|
+| filters | `array` | array of filter object e.g  
+```javascript
+var filters=[{   
+        key:'last_name',
+        value:'smith',
+        filterfn:function(){...}
+    },{   
+        key:'city',
+        value:'la',
+        filterfn:function(){...}
+    }]
+```
+* **ui-grid-filter** : used to apply filters
+
+|  Type    | Description |
+| :---------:|:-------:|
+| `string`/`object`| can be name of the proptery or filter object with filter function e.g | 
+
+```javascript
+    var filter={   
+        key:'last_name',
+        filterfn:function(){...}
+    }
+```
+* **ui-grid-sort** : used to apply sort
+|  Type    | Description |
+| ---------|-------|
+| `string`/`object`| can be name of the proptery or sorter object with sort function e.g
+```javascript
+    var sorter={   
+        key:'last_name',
+        sortfn:function(){...}
+    }
+```
 
 
-**ui-grid-repeat** : responsible for rendering the grid row </br>
-**ui-grid-filter** : used to apply filters</br>
-**ui-grid-sort** : used to apply sort</br>
-
+* **ui-grid-repeat** : responsible for rendering the grid row 
 ## Usage :
   
 ### **ui-grid** :
-```
+#### HTML
+```html
 <table ui-grid="gridOptions">
 		<thead>
 			<tr>
@@ -42,7 +86,8 @@
 		</tbody>
 </table>
 ```
-```
+##### CODE
+```javascript
 angular.module('myApp',['ui.grid']);
 angular.module('myApp').controller("myCtrl",function($scope){
     var master_list=[];
@@ -57,7 +102,8 @@ angular.module('myApp').controller("myCtrl",function($scope){
 
   
 ### **ui-grid-sort** : accepts property name e.g 'last_name' or Object which has property name and sort function.
-```
+#### HTML
+```html
 <table ui-grid="gridOptions">
 		<thead>
 			<tr>
@@ -77,7 +123,8 @@ angular.module('myApp').controller("myCtrl",function($scope){
 		</tbody>
 </table>
 ```
-```
+#### CODE
+```javascript
 angular.module('myApp',['ui.grid']);
 angular.module('myApp').controller("myCtrl",function($scope){
     var master_list=[];
@@ -96,7 +143,8 @@ angular.module('myApp').controller("myCtrl",function($scope){
 });
 ```
 ### **ui-grid-filter** : accepts property name e.g 'first_name' or Object which has property name and filter function.
-```
+#### HTML
+```html
 <table ui-grid="gridOptions">
 		<thead>
 			<tr>
@@ -122,7 +170,8 @@ angular.module('myApp').controller("myCtrl",function($scope){
 		</tbody>
 </table>
 ```
-```
+#### CODE
+```javascript
 angular.module('myApp',['ui.grid']);
 angular.module('myApp').controller("myCtrl",function($scope){
     var master_list=[];
