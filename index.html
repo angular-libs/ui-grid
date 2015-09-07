@@ -23,7 +23,7 @@
 <a id="ui-grid" class="anchor" href="#ui-grid" aria-hidden="true"><span class="octicon octicon-link"></span></a>ui-grid</h1>
 
 <h2>
-<a id="ui-grid-can-be-used-to-create-grid-with-basic-functionality-like-sortfilterpagination" class="anchor" href="#ui-grid-can-be-used-to-create-grid-with-basic-functionality-like-sortfilterpagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)</h2>
+<a id="ui-grid-can-be-used-to-create-grid-with-basic-functionality-like-sortfilterpagination" class="anchor" href="#ui-grid-can-be-used-to-create-grid-with-basic-functionality-like-sortfilterpagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>ui-grid can be used to create grid with basic functionality like sort,filter,pagination</h2>
 
 <h2>
 <a id="directives-" class="anchor" href="#directives-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directives :</h2>
@@ -64,54 +64,27 @@
 <tr>
 <td align="left">listeners</td>
 <td align="left"><code>object</code></td>
-<td align="left">callback functions</td>
+<td align="left" style="padding-left: 10px;">
+    <span>callback functions</span>
+    <div>
+        <ul>
+            <li><code>beforeLoadingData</code> : called before loading the records.</li>
+            <li><code>afterLoadingData</code> : called after loading the records</li>
+        <ul>
+    </ul></ul></div>
+</td>
 </tr>
-</tbody>
-</table>
-
-<pre><code>1). beforeLoadingData : called before loading the records.
-2). afterLoadingData : called after loading the records
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left"></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td align="left">pager</td>
 <td align="left"><code>object</code></td>
-<td align="left">paging configuation object e.g</td>
-</tr>
-</tbody>
-</table>
-
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> pager<span class="pl-k">=</span>{
+<td align="left"><p>paging configuation object </p><div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> pager<span class="pl-k">=</span>{
         count<span class="pl-k">:</span><span class="pl-c1">20</span> 
-    }</pre></div>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left"></th>
-<th align="left"></th>
+    }</pre></div></td>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td align="left">filters</td>
 <td align="left"><code>array</code></td>
-<td align="left">array of filter object e.g</td>
-</tr>
-</tbody>
-</table>
-
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> filters<span class="pl-k">=</span>[{   
+<td align="left"><p>array of filter object e.g</p><div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> filters<span class="pl-k">=</span>[{   
         key<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>last_name<span class="pl-pds">'</span></span>,
         value<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>smith<span class="pl-pds">'</span></span>,
         <span class="pl-en">filterfn</span><span class="pl-k">:</span><span class="pl-k">function</span>(){...}
@@ -119,8 +92,12 @@
         key<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>city<span class="pl-pds">'</span></span>,
         value<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>la<span class="pl-pds">'</span></span>,
         <span class="pl-en">filterfn</span><span class="pl-k">:</span><span class="pl-k">function</span>(){...}
-    }]</pre></div>
+    }]</pre></div></td>
+</tr>
+</tbody>
+</table>
 
+</hr>
 <ul>
 <li>
 <strong>ui-grid-filter</strong> : used to apply filters</li>
