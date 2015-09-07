@@ -1,13 +1,35 @@
 {
-  "name": "ui-grid",
+  "name": "ng-ui-grid",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.3.0"
   },
-  "main":"dist/scripts/ui-grid.js",
+  "main": "dist/scripts/ui-grid.js",
   "devDependencies": {
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "uiGridApp"
+  "moduleName": "uiGrid",
+  "homepage": "https://github.com/kuldeepkeshwar/ui-grid",
+  "authors": [
+    "Kuldeep Keshwar <kuldeepkeshwar@gmail.com>"
+  ],
+  "description": "ui-grid for angular js",
+  "keywords": [
+    "ui-grid",
+    "angularjs",
+    "grid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kuldeepkeshwar/ui-grid.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
