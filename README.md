@@ -2,6 +2,18 @@
 
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
+#Installing
+#### Bower
+```javascript
+    bower install ng-ui-grid
+    <script src="bower_components/ng-ui-grid/dist/scripts/ui-grid.js"></script>
+```
+#### CDN
+
+##### You can use rawgit.com's cdn url to access the files in the Bower repository. These files are hosted by MaxCDN. Just alter the version as you need.
+
+* https://rawgit.com/kuldeepkeshwar/ui-grid/master/dist/scripts/ui-grid.js
+* https://rawgit.com/kuldeepkeshwar/ui-grid/master/dist/scripts/ui-grid.min.js
 
 ## Directives :
 * **ui-grid** : the core directive for the ui-grid which accept an configuration object.
