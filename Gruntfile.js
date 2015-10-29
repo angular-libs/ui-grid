@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-jsinspect');
   // Configurable paths for the application
   var appConfig = {
@@ -27,6 +27,24 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+    bump: {
+      options: {
+        files: ['bower.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['-a'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'upstream',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+        globalReplace: false,
+        prereleaseName: false,
+        regExp: false
+      }
+    },
     jsinspect: {
       inspect: {
         options: {
