@@ -15,6 +15,7 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.loadNpmTasks('grunt-jsinspect');
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -26,7 +27,21 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
-
+    jsinspect: {
+      inspect: {
+        options: {
+          threshold:   30,
+          diff:        true,
+          identifiers: false,
+          failOnMatch: true,
+          suppress:    100,
+          reporter:    'default'
+        },
+        src: [
+          '<%= yeoman.app %>/**/*.js'
+        ]
+      }
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -199,7 +214,7 @@ module.exports = function (grunt) {
         }
       }
     },
- 
+
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
@@ -208,7 +223,7 @@ module.exports = function (grunt) {
         assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
       }
     },
- 
+
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
@@ -236,7 +251,7 @@ module.exports = function (grunt) {
       options : {
         beautify : {
           ascii_only : true
-        }    
+        }
       }
     },
     imagemin: {
@@ -389,6 +404,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'newer:jshint',
+    'jsinspect',
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -406,7 +423,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
     'test',
     'build'
   ]);

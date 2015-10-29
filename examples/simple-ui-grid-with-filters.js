@@ -22,15 +22,21 @@ angular.module('gpApp').controller('TestController',['$scope','$q',function($sco
 	}
 	$scope.add=function(k){
 		if(k){
-			master_list.push({first_name:k.first_name,last_name:k.last_name,age:k.age,city:k.city});	
+			master_list.push({first_name:k.first_name,last_name:k.last_name,age:k.age,city:k.city});
 		}
 	}
-	$scope.delete=function(p){
-		var i=master_list.indexOf(p)
-		if(i!=-1){
-			master_list.splice(i,1);	
-		}
-		
-	}
+  $scope.delete=function(p){
+    var index=-1;
+    for(var a=0;a<master_list.length;a++){
+      if(master_list[a].first_name=== p.first_name){
+        index=a;
+        break;
+      }
+    }
+    if(index!=-1){
+      master_list.splice(index,1);
+    }
+
+  }
 }]);
 
