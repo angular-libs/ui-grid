@@ -3,6 +3,7 @@
 [![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
 [![Code Climate](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid)
 [![Test Coverage](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage)
+[![Bower version](https://badge.fury.io/bo/ng-ui-grid.svg)](https://badge.fury.io/bo/ng-ui-grid)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
 #Installing
