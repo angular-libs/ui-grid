@@ -1,6 +1,8 @@
 # ui-grid
 [![Build Status](https://travis-ci.org/kuldeepkeshwar/ui-grid.svg?branch=master)](https://travis-ci.org/kuldeepkeshwar/ui-grid)
 [![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
+[![Code Climate](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid)
+[![Test Coverage](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
 #Installing
