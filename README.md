@@ -1,5 +1,6 @@
 # ui-grid
 [![Build Status](https://travis-ci.org/kuldeepkeshwar/ui-grid.svg?branch=master)](https://travis-ci.org/kuldeepkeshwar/ui-grid)
+[![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
 #Installing
