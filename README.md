@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/kuldeepkeshwar/ui-grid.svg?branch=master)](https://travis-ci.org/kuldeepkeshwar/ui-grid)
 [![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
 [![codecov.io](https://codecov.io/github/kuldeepkeshwar/ui-grid/coverage.svg?branch=master)](https://codecov.io/github/kuldeepkeshwar/ui-grid?branch=master)
-[![Code Climate](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid)
-[![Test Coverage](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg)](https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage)
+<a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg" /></a>
 [![Bower version](https://badge.fury.io/bo/ng-ui-grid.svg)](https://badge.fury.io/bo/ng-ui-grid)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
