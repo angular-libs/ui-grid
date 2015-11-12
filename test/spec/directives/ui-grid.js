@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Directive: test', function () {
+describe('Directive: uiGrid', function () {
 
   // load the directive's module
   beforeEach(module('ui.grid'));
 
 
-//TODO
+
   xit('should make hidden element visible', inject(function () {
-    expect(1).toBe(1);
+    expect(3).toBe(3);
   }));
 });

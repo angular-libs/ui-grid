@@ -289,16 +289,16 @@ module.exports = function (grunt) {
         }
       }
     },
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
+    //imagemin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= yeoman.app %>/images',
+    //      src: '{,*/}*.{png,jpg,jpeg,gif}',
+    //      dest: '<%= yeoman.dist %>/images'
+    //    }]
+    //  }
+    //},
 
     svgmin: {
       dist: {
@@ -395,7 +395,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'copy:styles',
-        'imagemin',
+        //'imagemin',
         'svgmin'
       ]
     },
@@ -440,7 +440,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'newer:jshint',
-    'jsinspect',//'coverage',
+    'jsinspect','coverage',
     'clean:dist',
     'wiredep',
     'useminPrepare',
