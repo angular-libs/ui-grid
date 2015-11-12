@@ -40,9 +40,5 @@
   },
   "engines": {
     "node": ">=0.12.4"
-  }//,
-  //"scripts": {
-  //  "test": "grunt default",
-  //  "ci": "npm test && codecov coverage/cobertura/cobertura-coverage.xml --token=efbc6679-b12a-4f4b-8d73-6443566e0e0d"
-  //}
+  }
 }
