@@ -440,7 +440,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'newer:jshint',
-    'jsinspect','coverage',
+    'jsinspect',//'coverage',
     'clean:dist',
     'wiredep',
     'useminPrepare',
