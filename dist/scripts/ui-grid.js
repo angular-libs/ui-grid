@@ -356,7 +356,7 @@ angular.module('ui.grid')
  * Controller of the uiGrid
  */
 angular.module('ui.grid')
-  .controller('GridCtrl', function($scope,$timeout,gridUtil,remoteGridUtil,$http,$log,$q){
+  .controller('GridCtrl', function($scope,$timeout,gridUtil,remoteGridUtil){
     var self,grid,defaults;
     defaults=function(options){
       var _defaults={
@@ -418,7 +418,7 @@ angular.module('ui.grid')
     grid=(gridUtil.isRemoteGrid($scope))?(new remoteGridUtil.RemoteGrid($scope.options)):(new gridUtil.Grid($scope.options));
 
     $timeout(function(){
-      grid.init($http,$log,$q);
+      grid.init();
       if($scope.options.filters && $scope.options.filters.length>0){
         for(var a=0;a<$scope.options.filters.length;a++){
           self.registerFilter($scope.options.filters[a]);
