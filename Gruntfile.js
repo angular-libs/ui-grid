@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-jsinspect');
-
+  grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks('grunt-istanbul-coverage');
   // Configurable paths for the application
   var appConfig = {
@@ -74,6 +74,16 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.app %>/**/*.js'
         ]
+      }
+    },
+    jscs: {
+      src: "<%= yeoman.app %>/scripts/{,*/}*.js",
+      options: {
+        //config: ".jscsrc",
+        //esnext: true, // If you use ES6 http://jscs.info/overview.html#esnext
+        verbose: true, // If you need output with rule names http://jscs.info/overview.html#verbose
+        fix: true, // Autofix code style violations when possible.
+        requireCurlyBraces: [ "if" ]
       }
     },
     // Watches files for changes and runs tasks based on the changed files

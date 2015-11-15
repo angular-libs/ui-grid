@@ -16,5 +16,4 @@ install:
 build: off
 
 test_script:
-   - ps: "grunt default # PowerShell" # Pass comment to PS for easier debugging
    - cmd: grunt default
