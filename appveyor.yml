@@ -9,10 +9,8 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - node --version
   - npm --version
-   - npm install -g bower karma grunt-cli jshint
-    - npm install
-    - bower install
-
-
+  - npm install -g bower karma grunt-cli jshint
+  - npm install
+  - bower install
 test_script:
   - grunt default
