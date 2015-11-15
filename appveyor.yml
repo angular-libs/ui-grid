@@ -13,4 +13,5 @@ install:
   - npm install
   - bower install
 test_script:
-  - grunt default
+   - ps: "grunt default # PowerShell" # Pass comment to PS for easier debugging
+   - cmd: grunt default
