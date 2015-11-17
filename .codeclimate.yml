@@ -12,6 +12,7 @@ ratings:
   - "**.js"
   - "**.jsx"
 exclude_paths:
-- "dist/*"
+- "dist/**.*"
 - "examples/*"
 - "*.*"
+- "app/**.html"
