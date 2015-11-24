@@ -6,6 +6,8 @@
 <a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg" /></a>
 [![Bower version](https://badge.fury.io/bo/ng-ui-grid.svg)](https://badge.fury.io/bo/ng-ui-grid)
 [![Build status](https://ci.appveyor.com/api/projects/status/vr1h5g5r5wmccrf9/branch/master?svg=true)](https://ci.appveyor.com/project/kuldeepkeshwar/ui-grid/branch/master)
+[![Issue Stats](http://issuestats.com/github/kuldeepkeshwar/ui-grid/badge/pr)](http://issuestats.com/github/kuldeepkeshwar/ui-grid)
+[![Issue Stats](http://issuestats.com/github/kuldeepkeshwar/ui-grid/badge/issue)](http://issuestats.com/github/kuldeepkeshwar/ui-grid)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
 #Installing
