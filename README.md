@@ -224,3 +224,7 @@ angular.module('myApp').controller("myCtrl",function($scope){
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kuldeepkeshwar/ui-grid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/angular-libs/ui-grid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
