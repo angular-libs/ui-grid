@@ -10,7 +10,7 @@
   },
   "appPath": "app",
   "moduleName": "uiGrid",
-  "homepage": "https://github.com/kuldeepkeshwar/ui-grid",
+  "homepage": "https://github.com/angular-libs/ui-grid",
   "authors": [
     "Kuldeep Keshwar <kuldeepkeshwar@gmail.com>"
   ],
@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/kuldeepkeshwar/ui-grid.git"
+    "url": "git://github.com/angular-libs/ui-grid.git"
   },
   "license": "MIT",
   "ignore": [
