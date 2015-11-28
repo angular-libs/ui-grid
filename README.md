@@ -1,5 +1,5 @@
 # ui-grid
-[![Build Status](https://travis-ci.org/kuldeepkeshwar/ui-grid.svg?branch=master)](https://travis-ci.org/kuldeepkeshwar/ui-grid)
+[![Build Status](https://travis-ci.org/angular-libs/ui-grid.svg?branch=master)](https://travis-ci.org/angular-libs/ui-grid)
 [![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
 [![codecov.io](https://codecov.io/github/angular-libs/ui-grid/coverage.svg?branch=master)](https://codecov.io/github/angular-libs/ui-grid?branch=master)
 <a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg" /></a>
