@@ -1,13 +1,13 @@
 # ui-grid
 [![Build Status](https://travis-ci.org/angular-libs/ui-grid.svg?branch=master)](https://travis-ci.org/angular-libs/ui-grid)
-[![Dependency Status](https://gemnasium.com/kuldeepkeshwar/ui-grid.svg)](https://gemnasium.com/kuldeepkeshwar/ui-grid)
+[![Dependency Status](https://gemnasium.com/angular-libs/ui-grid.svg)](https://gemnasium.com/angular-libs/ui-grid)
 [![codecov.io](https://codecov.io/github/angular-libs/ui-grid/coverage.svg?branch=master)](https://codecov.io/github/angular-libs/ui-grid?branch=master)
-<a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/gpa.svg" /></a>
-<a href="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/coverage"><img src="https://codeclimate.com/github/kuldeepkeshwar/ui-grid/badges/coverage.svg" /></a>
+<a href="https://codeclimate.com/github/angular-libs/ui-grid"><img src="https://codeclimate.com/github/angular-libs/ui-grid/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/angular-libs/ui-grid/coverage"><img src="https://codeclimate.com/github/angular-libs/ui-grid/badges/coverage.svg" /></a>
 [![Bower version](https://badge.fury.io/bo/ng-ui-grid.svg)](https://badge.fury.io/bo/ng-ui-grid)
-[![Build status](https://ci.appveyor.com/api/projects/status/vr1h5g5r5wmccrf9/branch/master?svg=true)](https://ci.appveyor.com/project/kuldeepkeshwar/ui-grid/branch/master)
-[![Issue Stats](http://issuestats.com/github/kuldeepkeshwar/ui-grid/badge/pr)](http://issuestats.com/github/kuldeepkeshwar/ui-grid)
-[![Issue Stats](http://issuestats.com/github/kuldeepkeshwar/ui-grid/badge/issue)](http://issuestats.com/github/kuldeepkeshwar/ui-grid)
+[![Build status](https://ci.appveyor.com/api/projects/status/vr1h5g5r5wmccrf9/branch/master?svg=true)](https://ci.appveyor.com/project/angular-libs/ui-grid/branch/master)
+[![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/pr)](http://issuestats.com/github/angular-libs/ui-grid)
+[![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/issue)](http://issuestats.com/github/angular-libs/ui-grid)
 ![codecov.io](https://codecov.io/github/angular-libs/ui-grid/branch.svg?branch=master)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
 
@@ -21,8 +21,8 @@
 
 ##### You can use rawgit.com's cdn url to access the files in the Bower repository. These files are hosted by MaxCDN. Just alter the version as you need.
 
-* https://rawgit.com/kuldeepkeshwar/ui-grid/master/dist/scripts/ui-grid.js
-* https://rawgit.com/kuldeepkeshwar/ui-grid/master/dist/scripts/ui-grid.min.js
+* https://rawgit.com/angular-libs/ui-grid/master/dist/scripts/ui-grid.js
+* https://rawgit.com/angular-libs/ui-grid/master/dist/scripts/ui-grid.min.js
 
 ## Directives :
 * **ui-grid** : the core directive for the ui-grid which accept an configuration object.
