@@ -67,7 +67,12 @@ angular.module('ui.grid')
         this.masterSrc=n;
         this._masterSrc=angular.copy(n);
         this.scope.options.listeners.beforeLoadingData.call(this,this.masterSrc);
-        this.invokeFilterChain();
+
+        if(this.scope.options.manualFilter!==true){
+          this.invokeFilterChain();
+        }else{
+          this.resetSrc();
+        }
         if(this.pager){
           _c=this.pager.currentPage;
           this.initPager(this.pager);

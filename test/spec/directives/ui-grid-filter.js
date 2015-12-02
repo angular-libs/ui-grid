@@ -12,15 +12,13 @@ describe('Directive: uiGridFilter', function () {
     scope.nameFilterConfig={
       key:'name',
       filterFn:function(array,filter,value){
-        //console.log(array,filter,value);
         for(var i = array.length - 1; i >= 0; i--) {
-          if(value && array[i][filter.key]!=value){
+          if(value && array[i][filter.key]!==value){
             array.splice(i, 1);
           }
         }
-        //console.log(array);
       }
-    }
+    };
     var body=angular.element(document.body);
     var element=angular.element(
       '<div ui-grid="gridOptions">' +
@@ -40,7 +38,7 @@ describe('Directive: uiGridFilter', function () {
   afterEach(function(){
     var body=angular.element(document.body);
     body.html('');
-  })
+  });
   it('should filter with id', inject(function () {
     var inputEl=angular.element(document.getElementById('filter'));
     inputEl.val(1).triggerHandler('input');

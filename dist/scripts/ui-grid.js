@@ -188,7 +188,12 @@ angular.module('ui.grid')
         this.masterSrc=n;
         this._masterSrc=angular.copy(n);
         this.scope.options.listeners.beforeLoadingData.call(this,this.masterSrc);
-        this.invokeFilterChain();
+
+        if(this.scope.options.manualFilter!==true){
+          this.invokeFilterChain();
+        }else{
+          this.resetSrc();
+        }
         if(this.pager){
           _c=this.pager.currentPage;
           this.initPager(this.pager);
@@ -224,9 +229,9 @@ angular.module('ui.grid')
       self=this;
       _src=self.scope.options.src;
       _pager=self.scope.options.pager;
-      self.scope.options.applyFilter=function(){
-        self.applyFilter();
-      };
+      //self.scope.options.applyFilter=function(){
+      //  self.applyFilter();
+      //};
       if(_src && angular.isFunction(_src.then)){//promise
         _pomise=$q.when(_src);
         _promiseHandler(_pomise);
@@ -361,7 +366,7 @@ angular.module('ui.grid')
     defaults=function(options){
       var _defaults={
         src:[],
-        filters:{},
+        filters:[],
         sorter:{},
         remote:false,/// mark true for remote paging
         manualFilter:false, // mark true to apply Filters manually using applyFilter function
@@ -388,6 +393,8 @@ angular.module('ui.grid')
         for(var a=0;a<options.filters.length;a++){
           if(options.filters[a].key){
             options.filters[a]=angular.extend(_filter,options.filters[a]);
+          }else{
+            options.filters.splice(a,1);
           }
         }
       }

@@ -13,7 +13,7 @@ angular.module('ui.grid')
     defaults=function(options){
       var _defaults={
         src:[],
-        filters:{},
+        filters:[],
         sorter:{},
         remote:false,/// mark true for remote paging
         manualFilter:false, // mark true to apply Filters manually using applyFilter function
@@ -40,6 +40,8 @@ angular.module('ui.grid')
         for(var a=0;a<options.filters.length;a++){
           if(options.filters[a].key){
             options.filters[a]=angular.extend(_filter,options.filters[a]);
+          }else{
+            options.filters.splice(a,1);
           }
         }
       }
@@ -77,8 +79,8 @@ angular.module('ui.grid')
         }
       }
     });
-    //exposing applyFilter
-    $scope.options.applyFilter=function(){
-      grid.applyFilter();
-    };
+    ////exposing applyFilter
+    //$scope.options.applyFilter=function(){
+    //  grid.applyFilter();
+    //};
   });

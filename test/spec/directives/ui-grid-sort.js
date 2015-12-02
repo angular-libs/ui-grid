@@ -17,7 +17,7 @@ describe('Directive: uiGridSort', function () {
           return (a.name< b.name)?sorter.order*1:sorter.order*-1;
         });
       }
-    }
+    };
     var body=angular.element(document.body);
     element=angular.element('<div ui-grid="gridOptions">' +
                               '<p class="id-sorter" ui-grid-sort="id">Id</p>' +
