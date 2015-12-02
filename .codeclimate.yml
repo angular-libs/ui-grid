@@ -14,5 +14,6 @@ ratings:
 exclude_paths:
 - "dist/**.*"
 - "examples/*"
+- "test/*"
 - "*.*"
 - "app/**.html"
