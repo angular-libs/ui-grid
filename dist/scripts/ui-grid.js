@@ -229,9 +229,9 @@ angular.module('ui.grid')
       self=this;
       _src=self.scope.options.src;
       _pager=self.scope.options.pager;
-      //self.scope.options.applyFilter=function(){
-      //  self.applyFilter();
-      //};
+      self.scope.options.applyFilter=function(){
+        self.applyFilter();
+      };
       if(_src && angular.isFunction(_src.then)){//promise
         _pomise=$q.when(_src);
         _promiseHandler(_pomise);
@@ -432,10 +432,10 @@ angular.module('ui.grid')
         }
       }
     });
-    //exposing applyFilter
-    $scope.options.applyFilter=function(){
-      grid.applyFilter();
-    };
+    ////exposing applyFilter
+    //$scope.options.applyFilter=function(){
+    //  grid.applyFilter();
+    //};
   });
 
 'use strict';

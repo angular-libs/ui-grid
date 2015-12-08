@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/angular-libs/ui-grid.svg)](https://gemnasium.com/angular-libs/ui-grid)
 [![codecov.io](https://codecov.io/github/angular-libs/ui-grid/coverage.svg?branch=master)](https://codecov.io/github/angular-libs/ui-grid?branch=master)
 <a href="https://codeclimate.com/github/angular-libs/ui-grid"><img src="https://codeclimate.com/github/angular-libs/ui-grid/badges/gpa.svg" /></a>
-<a href="https://codeclimate.com/github/angular-libs/ui-grid/coverage"><img src="https://codeclimate.com/github/angular-libs/ui-grid/badges/coverage.svg" /></a>
+[![Coverage Status](https://coveralls.io/repos/angular-libs/ui-grid/badge.svg?branch=master&service=github)](https://coveralls.io/github/angular-libs/ui-grid?branch=master)
 [![Bower version](https://badge.fury.io/bo/ng-ui-grid.svg)](https://badge.fury.io/bo/ng-ui-grid)
 [![Build status](https://ci.appveyor.com/api/projects/status/vr1h5g5r5wmccrf9/branch/master?svg=true)](https://ci.appveyor.com/project/angular-libs/ui-grid/branch/master)
 [![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/pr)](http://issuestats.com/github/angular-libs/ui-grid)

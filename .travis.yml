@@ -5,7 +5,7 @@ before_script:
   - 'export CHROME_BIN=chromium-browser'
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
-  - 'npm install -g bower karma grunt-cli jshint codecov codeclimate-test-reporter'
+  - 'npm install -g bower karma grunt-cli jshint codecov codeclimate-test-reporter coveralls'
   - 'npm install' # install npm packages
   - 'bower install' # install bower packages
 
@@ -13,3 +13,4 @@ after_script:
   - 'grunt default'
   - 'codecov coverage/cobertura/cobertura-coverage.xml --token=06fdb4e3-f1ca-45b7-a02d-917583e18c9e'
   - 'CODECLIMATE_REPO_TOKEN=1cb32b39ff31ec40e538e2c5660d469905a579e57e3e9b86128a8e421f4a434d codeclimate-test-reporter < coverage/lcov/lcov.info'
+  - 'coveralls < coverage/lcov/lcov.info'
