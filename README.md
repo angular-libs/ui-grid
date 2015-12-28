@@ -223,7 +223,7 @@ angular.module('myApp').controller("myCtrl",function($scope){
 });
 ```
 
-
+[![Analytics](https://ga-beacon.appspot.com/UA-71806888-2/ui-grid/)](https://github.com/angular-libs/ui-grid)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/angular-libs/ui-grid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
