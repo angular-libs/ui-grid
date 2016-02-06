@@ -471,7 +471,7 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-  grunt.registerTask('bump', [
-    'bump'
-  ]);
+  //grunt.registerTask('bump', [
+  //  'bump'
+  //]);
 };
