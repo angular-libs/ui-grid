@@ -11,6 +11,7 @@
 [![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/issue)](http://issuestats.com/github/angular-libs/ui-grid)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/angular-libs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/c81ed311241d4e8894996858451ef0a4)](https://www.codacy.com/app/kuldeepkeshwar/ui-grid)
+[![ReviewNinja](https://app.review.ninja/39500461/badge)](https://app.review.ninja/angular-libs/ui-grid)
 ![codecov.io](https://codecov.io/github/angular-libs/ui-grid/branch.svg?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/33b672a9-d02a-469d-9242-e083482de9db/big.png)](https://insight.sensiolabs.com/projects/33b672a9-d02a-469d-9242-e083482de9db)
 ## ui-grid can be used to create grid with basic functionality like (sort,filter,pagination)
