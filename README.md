@@ -1,4 +1,6 @@
 # ui-grid
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/angular-libs/ui-grid.svg)](https://greenkeeper.io/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://travis-ci.org/angular-libs/ui-grid.svg?branch=master)](https://travis-ci.org/angular-libs/ui-grid)
 [![Dependency Status](https://gemnasium.com/angular-libs/ui-grid.svg)](https://gemnasium.com/angular-libs/ui-grid)
