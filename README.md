@@ -1,4 +1,6 @@
 # ui-grid
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/angular-libs/ui-grid.svg)](https://greenkeeper.io/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://travis-ci.org/angular-libs/ui-grid.svg?branch=master)](https://travis-ci.org/angular-libs/ui-grid)
 [![Dependency Status](https://gemnasium.com/angular-libs/ui-grid.svg)](https://gemnasium.com/angular-libs/ui-grid)
@@ -9,7 +11,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/vr1h5g5r5wmccrf9/branch/master?svg=true)](https://ci.appveyor.com/project/angular-libs/ui-grid/branch/master)
 [![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/pr)](http://issuestats.com/github/angular-libs/ui-grid)
 [![Issue Stats](http://issuestats.com/github/angular-libs/ui-grid/badge/issue)](http://issuestats.com/github/angular-libs/ui-grid)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/angular-libs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/c81ed311241d4e8894996858451ef0a4)](https://www.codacy.com/app/kuldeepkeshwar/ui-grid)
 [![ReviewNinja](https://app.review.ninja/39500461/badge)](https://app.review.ninja/angular-libs/ui-grid)
 ![codecov.io](https://codecov.io/github/angular-libs/ui-grid/branch.svg?branch=master)
@@ -230,17 +231,6 @@ angular.module('myApp').controller("myCtrl",function($scope){
 [![Analytics](https://ga-beacon.appspot.com/UA-71806888-2/ui-grid/)](https://github.com/angular-libs/ui-grid)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/angular-libs/ui-grid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-71806888-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/angular-libs/ui-grid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
