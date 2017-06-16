@@ -28,7 +28,7 @@
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
-    "jasmine-core": "^2.3.4",
+    "jasmine-core": "^2.6.4",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.13.15",
