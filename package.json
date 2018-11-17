@@ -33,7 +33,7 @@
     "jshint-stylish": "^2.2.1",
     "karma": "^2.0.0",
     "karma-coverage": "^1.1.1",
-    "karma-jasmine": "*",
+    "karma-jasmine": ">=2.0.1",
     "karma-phantomjs-launcher": "*",
     "load-grunt-tasks": "^3.3.0",
     "phantomjs": "^2.1.7",
