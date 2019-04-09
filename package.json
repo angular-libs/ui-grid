@@ -22,7 +22,7 @@
     "grunt-istanbul-coverage": "^0.1.1",
     "grunt-jscs": "^3.0.1",
     "grunt-jsinspect": "^3.0.0",
-    "grunt-karma": "*",
+    "grunt-karma": ">=3.0.2",
     "grunt-newer": "^1.1.0",
     "grunt-ng-annotate": "^3.0.0",
     "grunt-svgmin": "^5.0.0",
