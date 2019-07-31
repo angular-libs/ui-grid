@@ -35,7 +35,7 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "load-grunt-tasks": "^3.3.0",
+    "load-grunt-tasks": "^5.1.0",
     "phantomjs": "^2.1.7",
     "time-grunt": "^1.0.0"
   },
