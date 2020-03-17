@@ -2,7 +2,7 @@
   "name": "uigrid",
   "private": true,
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.1.0",
     "grunt-angular-templates": "^1.1.0",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-bump": "^0.8.0",
